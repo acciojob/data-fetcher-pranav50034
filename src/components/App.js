@@ -14,25 +14,14 @@ const App = () => {
      .then((response) => setData(response.data))
      .catch((err) => setError(err));
 
-     let ans = JSON.stringify(data)
-
 
   return (
      <div>
         {/* Do not remove the main div */}
         <h1>Data Fetched from API</h1>
-        {
-          data && 
-          <pre>{ans}</pre>
-        }
-        {
-          error && 
-          <p>{error}</p>
-        }
-        {
-          !data &&
-          <p>Loading...</p>
-        }
+        {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
+        {error && <p>{error}</p>}
+        {!data && <p>Loading...</p>}
         {/* <p>Hello</p> */}
 
         {/* {
