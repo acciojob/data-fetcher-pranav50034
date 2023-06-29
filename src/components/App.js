@@ -6,12 +6,13 @@ import axios from "axios";
 const App = () => {
 
   let [data, setData] = useState("")
+  let [error, setError] = useState("")
 
 
   axios
      .get("https://dummyjson.com/products")
      .then((response) => setData(response.data))
-     .catch((err) => console.log(err));
+     .catch((err) => setError(err));
 
      let ans = JSON.stringify(data)
 
@@ -23,6 +24,10 @@ const App = () => {
         {
           data && 
           <pre>{ans}</pre>
+        }
+        {
+          error && 
+          <p>{error}</p>
         }
         {
           !data &&
