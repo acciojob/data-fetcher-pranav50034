@@ -12,7 +12,7 @@ const App = () => {
   axios
      .get("https://dummyjson.com/products")
      .then((response) => setData(response.data))
-     .catch((err) => setData(`An error occurred ${err}`));
+     .catch((err) => setData(`An error occurred: ${err}`));
 
 
   return (
